@@ -40,3 +40,4 @@ urllib3
 wcwidth
 WebOb
 zope.interface
+xhtml2pdf
