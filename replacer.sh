@@ -8,7 +8,10 @@
 
 # envsubst command
 ENVSUBST=envsubst
-for files in `find . -type f -a -name "*.replacer" -print`
+
+for files in `find . -type f -a -name \\*.replacer -print`
 do
-  $ENVSUBST < $files > `basename $files .replacer`
+  destfile=`dirname $files`/`basename $files .replacer`
+  echo Converting $files to $destfile
+  $ENVSUBST < $files > $destfile
 done
