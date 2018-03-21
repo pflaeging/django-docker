@@ -22,9 +22,12 @@ FROM pflaeging/django:latest
  EXPOSE 8000
  CMD [ "python3", "manage.py", "runserver", "0.0.0.0:8000" ]
  ```
-2. Put your django project under ./myapp/
+2. Put your django project under . (aka /container)
 3. generate your docker container
-4. Done ;-)
+4. Generate your templates for replacer (see ./replacer.sh)
+5. Done ;-)
+
+
 
 ## Comments for your app!
 

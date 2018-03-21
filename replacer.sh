@@ -1,23 +1,14 @@
 #! /bin/sh
-# Rewrite all the files from TEMPLATEDIR with the files in REPLACEDIR
+# Rewrite all the files with the extension .replacer and replace the ENV variables
 # Example:
-# ./templates/dodo/testerle.ini is the template
+# ./dodo/testerle.ini.replacer is the template
 # ./dodo/testerle.ini is the destination file where
 # every ENV variable ($VAR) would be replaced
 
-# where are my templates?
-TEMPLATEDIR=/container/templates
-# where are the files I'm trying to replace?
-REPLACEDIR=/container
 
-# encsubst command
+# envsubst command
 ENVSUBST=envsubst
-
-if [ -d $TEMPLATEDIR ]
-then
-  cd $TEMPLATEDIR
-  for files in `find . -type f -print`
-  do
-    $ENVSUBST < $files > $REPLACEDIR/$files
-  done
-fi
+for files in `find . -type f -a -name "*.replacer" -print`
+do
+  $ENVSUBST < $files > `basename $files .replacer`
+done
