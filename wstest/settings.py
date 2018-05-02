@@ -25,7 +25,8 @@ SECRET_KEY = '&97gs+*k(+b8cctix60f-a0n9=e8!28ts#x117fp7p$nglaea4'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# In case of a docker-container someone else will check security (PP)
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
